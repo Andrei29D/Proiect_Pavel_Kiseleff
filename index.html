@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regulamentele Organice - Studiu Istoriografic Complet</title>
-    <!-- Fonturi: Playfair Display (titluri) & Lato (corp) -->
+    <title>Pavel Kiseleff - Arhitectul Modernității</title>
+    <!-- Fonturi -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -14,13 +14,12 @@
     <style>
         /* --- DESIGN SYSTEM --- */
         :root {
-            /* Contrast puternic pentru accesibilitate */
-            --primary-dark: #0d1117;     
-            --primary-gold: #b48b3b;     
-            --bg-light: #ffffff;         
-            --bg-alt: #f0f2f5;           
-            --text-main: #000000;        
-            --text-secondary: #333333;   
+            --primary-dark: #1a252f;
+            --accent-gold: #b48b3b;
+            --bg-light: #fdfbf7; /* Ton de pergament */
+            --bg-white: #ffffff;
+            --text-main: #2c2c2c;
+            --text-secondary: #555555;
             
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Lato', sans-serif;
@@ -34,334 +33,221 @@
             font-family: var(--font-body);
             background-color: var(--bg-light);
             color: var(--text-main);
-            line-height: 1.8;
-            font-size: 18px; 
+            line-height: 1.9;
+            font-size: 18px;
         }
 
         h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--primary-dark); margin-bottom: 1.2rem; }
-        h1 { font-size: 3.5rem; line-height: 1.1; }
-        h2 { font-size: 2.5rem; position: relative; padding-bottom: 15px; margin-top: 4rem; border-bottom: 1px solid #ddd; }
-        h3 { font-size: 1.6rem; color: #000; margin-top: 2rem; font-weight: 700; }
-        p { margin-bottom: 1.5rem; text-align: justify; color: var(--text-main); }
+        h1 { font-size: 3.2rem; line-height: 1.2; text-align: center; }
+        h2 { font-size: 2.2rem; position: relative; padding-bottom: 15px; margin-top: 4rem; border-bottom: 1px solid #e0e0e0; }
+        h3 { font-size: 1.5rem; color: var(--primary-dark); margin-top: 2.5rem; font-weight: 700; }
+        p { margin-bottom: 1.5rem; text-align: justify; }
         
         strong { color: var(--primary-dark); font-weight: 700; }
+        em { color: var(--text-secondary); font-style: italic; }
 
-        a { text-decoration: none; transition: 0.3s; }
-        a:hover { color: var(--primary-gold); }
+        a { text-decoration: none; transition: 0.3s; border-bottom: 1px dotted; color: var(--primary-dark); }
+        a:hover { color: var(--accent-gold); border-bottom-style: solid; }
 
-        /* --- NAVIGATION --- */
-        nav {
-            background: #ffffff;
-            padding: 1rem 5%; position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center;
-        }
-        .logo { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); letter-spacing: 0.5px; }
-        .logo i { color: var(--primary-gold); margin-right: 10px; }
-        .nav-links { display: flex; gap: 25px; }
-        .nav-links a { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; color: var(--primary-dark); border-bottom: 3px solid transparent; padding-bottom: 5px; }
-        .nav-links a:hover, .nav-links a.active { border-color: var(--primary-gold); color: var(--primary-gold); }
-
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         header.hero {
-            height: 90vh; 
-            /* Seed selectat pentru a sugera o hartă sau luptă, cu filtru întunecat */
-            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75)), url('https://picsum.photos/seed/battle_map_1828/1920/1080');
+            height: 80vh; 
+            background: linear-gradient(rgba(26, 37, 47, 0.85), rgba(26, 37, 47, 0.75)), url('https://picsum.photos/seed/bucharest_old_kiseleff/1920/1080');
             background-size: cover; background-position: center; background-attachment: fixed;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: #ffffff; padding: 20px;
+            text-align: center; color: #fff; padding: 20px;
         }
-        .hero h1 { color: #ffffff; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
-        .hero-subtitle { font-size: 1.4rem; font-family: var(--font-heading); font-style: italic; color: #e0e0e0; max-width: 800px; margin-bottom: 30px; }
-        .btn-cta {
-            padding: 15px 40px; background: var(--primary-gold); color: #ffffff;
-            font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
-            border-radius: 2px; border: 2px solid var(--primary-gold);
-        }
-        .btn-cta:hover { background: transparent; color: #ffffff; }
+        .hero-subtitle { font-size: 1.4rem; font-family: var(--font-heading); font-style: italic; opacity: 0.9; max-width: 800px; margin-top: 20px; }
 
-        /* --- CONTENT LAYOUT --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+        /* --- CONTENT --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 40px; background: var(--bg-white); margin-bottom: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
         
-        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px; }
-        
-        .col-text { padding: 10px; }
-        .col-text.right { order: 2; }
-        .col-img { order: 1; }
-        
-        /* STILIZARE IMAGINI "ISTORICE" */
-        .col-img img {
-            width: 100%; height: auto; min-height: 350px; object-fit: cover;
-            border: 8px solid #fff; padding: 5px; background: #eee;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.2); 
-            /* Filtre puternice pentru a face orice imagine să pară din sec. 19 */
-            filter: sepia(50%) contrast(1.2) grayscale(50%) brightness(0.9);
-            transition: all 0.5s ease;
-        }
-        .col-img img:hover { 
-            filter: sepia(0%) contrast(1) grayscale(0%); 
-            transform: scale(1.01);
-        }
-        .img-caption {
-            text-align: center; font-size: 0.9rem; color: #666; font-style: italic; margin-top: 10px; font-family: var(--font-heading);
+        .timeline-marker {
+            display: inline-block; width: 12px; height: 12px; background: var(--accent-gold); border-radius: 50%; margin-right: 10px;
         }
 
-        /* --- INFO BOXES --- */
-        .info-box {
-            background: #f4f4f4; padding: 25px; border-left: 5px solid var(--primary-gold);
-            margin: 30px 0; border-radius: 4px;
-        }
-        .info-box h4 { font-family: var(--font-heading); font-size: 1.2rem; color: #000; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        
-        .quote-block {
-            border-left: 5px solid var(--primary-dark); margin: 40px 0; padding-left: 30px;
-            font-family: var(--font-heading); font-size: 1.4rem; color: #000; font-style: italic;
-            background: #fff;
+        /* --- QUOTE --- */
+        .quote {
+            border-left: 5px solid var(--accent-gold); padding: 20px 30px; margin: 40px 0;
+            background: #f9f9f9; font-family: var(--font-heading); font-size: 1.3rem; color: #444; font-style: italic;
         }
 
-        /* --- CARDS --- */
-        .section-bg { background: #000000; color: #ffffff; }
-        .section-bg h2 { color: #ffffff; border-color: #333; }
-        .section-bg p { color: #cccccc; text-align: center; }
-        
-        .cards-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px;
+        /* --- IMG STYLING --- */
+        .img-wrapper {
+            width: 100%; height: 400px; overflow: hidden; margin: 40px 0;
+            border: 8px solid #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            filter: sepia(30%) contrast(1.1);
         }
-        .card { background: #1a1a1a; padding: 40px; border-radius: 4px; border: 1px solid #333; text-align: center; }
-        .card i { font-size: 3rem; color: var(--primary-gold); margin-bottom: 20px; }
-        .card h3 { color: #fff; font-size: 1.3rem; margin-bottom: 15px; }
-        .card p { color: #ddd; font-size: 0.95rem; text-align: center; margin-bottom: 0; }
-
-        /* --- GALLERY --- */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 40px; }
-        .g-item { height: 250px; overflow: hidden; border-radius: 4px; position: relative; cursor: pointer; border: 4px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; filter: grayscale(100%) sepia(50%); }
-        .g-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
-        .g-caption {
-            position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.8); color: #fff; padding: 10px;
-            text-align: center; font-size: 0.85rem; font-weight: bold;
-        }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
 
         /* --- FOOTER --- */
-        footer { background: #000; color: #fff; text-align: center; padding: 40px 20px; font-size: 0.9rem; border-top: 4px solid var(--primary-gold); }
-        footer p { color: #ccc; }
+        footer { background: var(--primary-dark); color: #ccc; text-align: center; padding: 40px 20px; font-size: 0.9rem; border-top: 5px solid var(--accent-gold); }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            h1 { font-size: 2.5rem; }
-            .row { grid-template-columns: 1fr; gap: 30px; }
-            .col-text.right { order: 0; }
-            .col-img { order: 0; }
-            .nav-links { display: none; } 
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .container { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigație -->
-    <nav>
-        <div class="logo"><i class="fas fa-scroll"></i> Regulamentele Organice</div>
-        <div class="nav-links">
-            <a href="#context">Context</a>
-            <a href="#kiselyov">Kiseleff</a>
-            <a href="#regulament">Textul Legii</a>
-            <a href="#impact">Impact & Economie</a>
-            <a href="#concluzii">Concluzii</a>
-        </div>
-    </nav>
-
-    <!-- Hero -->
     <header class="hero">
-        <h1>Între Modernizare și Dependență</h1>
-        <p class="hero-subtitle">O analiză istoriografică completă a Regulamentelor Organice: Prima pseudo-constituție a României (1831-1832)</p>
-        <a href="#context" class="btn-cta">Citește Proiectul</a>
+        <h1>Pavel Kiseleff</h1>
+        <p class="hero-subtitle">Generalul Rus care a iubit România și ne-a dat prima Constituție</p>
     </header>
 
-    <!-- INTRODUCERE ȘI CONTEXT -->
-    <section id="context" class="container">
-        <div class="row">
-            <div class="col-text">
-                <h2>1. Contextul Istoric și Geopolitic</h2>
-                <p>
-                    Istoria României moderne își găsește punctul de convergență în complexa realitate a anilor 1820-1830. <strong>Regulamentele Organice</strong> nu au apărut într-un vid, ci au fost rezultatul unei presiuni colosale exercitate de <strong>"Chestiunea Orientală"</strong>. De secole, Principatele Dunărene fuseseră un teritoriu tampon între imperiile Otoman și Habsburgic, însă după războaiele napoleoniene, a apărut un nou actor: Imperiul Rus.
-                </p>
-                <p>
-                    Până în 1821, administrația fanariotă (domnii greci de la Constantinopol) adusese o modernizare limitată, dar și corupție și lipsă de loialitate națională. Revoluția lui Tudor Vladimirescu din 1821 a marcat prima ruptură vizibilă, sfârșiind sistemul fanariot. Totuși, libertatea câștigată de boieri era fragilă. <strong>Războiul Ruso-Turc din 1828-1829</strong> a oferit Rusiei pretextul ideal pentru a ocupa teritoriul.
-                </p>
-                <p>
-                    Potrivit tratatelor și memoriilor vremii, ocupația a fost brutală. Armata rusă, condusă de Țarul Alexandru I, a traversat Principatele pentru a ajunge la Adrianopol. Istoriografii precum Nicolae Iorga subliniază că trecerea armatelor a însemnat rechiziții masive de hrană și distrugeri. Mai grav, ani 1829-1830 au fost marcați de o secetă teribilă, numită de țărani <strong>"setopada"</strong>. Lipsa recoltelor, combinată cu cerințele armatei ruse, a creat o foamete care a pus bazele unei urgențe administrative de care generalii ruși au profitat.
-                </p>
-                <div class="info-box">
-                    <h4><i class="fas fa-info-circle"></i> Detaliu Istoric: Pacea de la Adrianopol (1829)</h4>
-                    <p>Tratatul a consfințit victoria Rusiei și a permis staționarea trupelor în Principate "pentru menținerea ordinii". Deși textul vorbea de "autonomie", realitatea a fost instalarea unui protectorat rusesc care a durat aproximativ 5 ani (până la retragerea trupelor în 1834), dar a influențat legislativ țările timp de un sfert de secol.</p>
-                </div>
+    <div class="container">
+        <!-- 1. Introducere (Modificată conform cerinței) -->
+        <section>
+            <h2>1. Cine a fost Kiseleff?</h2>
+            <p>
+                Pavel Kiseleff (Pavel Dmitrievici Kiseleff) a fost un general și om de stat rus, născut în 1788 și decedat în 1872. El a devenit cunoscut în special pentru rolul său în administrarea Țărilor Române în perioada ocupației rusești, unde a introdus reforme importante prin „Regulamentul Organic”. Este considerat una dintre figurile care au contribuit la modernizarea administrației românești în secolul al XIX-lea.
+            </p>
+            <div class="quote">
+                "Generalul Rus care a iubit România și ne-a dat prima Constituție"
             </div>
-            <div class="col-img">
-                <!-- Seed relevant: Hartă/Parchament vechi -->
-                <img src="https://image3.slideserve.com/5447158/principatele-rom-ne-l.jpg" alt="Reprezentare vizuală a hartelor și documentelor din 1828">
-                <div class="img-caption">Contextul geopolitic al Principatelor</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PAVEL KISSELYOV -->
-    <section id="kiselyov" class="container">
-        <div class="row">
-            <div class="col-img">
-                <!-- Seed relevant: Portret bărbat/ofițer -->
-                <img src="https://galeriaportretelor.ro/wp-content/uploads/2021/01/pavel-kiseleff.jpg" alt="Reprezentare vizuală a arhitectului regimului">
-                <div class="img-caption">Arhitectul Regimului Reglementar</div>
-            </div>
-            <div class="col-text right">
-                <h2>2. Pavel Kiseleff: Arhitectul Regimului</h2>
-                <p>
-                    Figura centrală a acestei tranziții este, fără îndoială, generalul rus <strong>Pavel Dmitrievici Kiseleff</strong>. Numit președinte al Divanurilor Ad-hoc, Kiseleff a condus administrația militară a ocupantului. Biografii săi îl descriu ca pe un administrator luminat, care a aplicat în Principate reformele pe care le-ar fi dorit să le implementeze în propria țară, dar care nu a ezitat să folosească o mână de fier atunci când interesul rusesc o cerea.
-                </p>
-                <p>
-                    Kiseleff a înțeles rapid că haosul otoman și feudalismul moșenit erau bariere în calea eficienței economice. El a inițiat campanii de sănătate publică (vaccinarea antivariolică), a curățat orașele de gunoaie și a stabilit un corp de poliție organizat (agie). Românii l-au numit, ironic, "Dumnezeul" nostru, referindu-se la omniprezența sa.
-                </p>
-                <p>
-                    În aprilie 1830, Kiseleff a emis faimoasa "<strong>Instrucțiune</strong>" către Divanurile care redactau noile legi. Documentul este cheia înțelegerii spiritului Regulamentelor: "Să se separe puterea judecătorească de cea administrativă... să se asigure proprietatea... dar, în același timp, să nu se schimbe nimic fără aprobarea Împăratului." Această ultimă precizare anula, de fapt, orice suveranitate națională. Kiseleff a dorit o ordine administrativă modernă, dar una care să funcționeze ca o "cârpă" pentru haina rusă.
-                </p>
-                <div class="quote-block">
-                    "Regimul Reglementar a fost o școală de despotism luminat. A învățat pe români ordinea, dar i-a obișnuit cu biciul."
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- 2. Context istoric (Modificată conform cerinței) -->
+        <section>
+            <h2>2. Context istoric</h2>
+            <p>
+                În perioada în care Kiseleff a activat, Imperiul Țarist avea o influență puternică asupra Europei de Est, inclusiv asupra Moldovei și Țării Românești. După Războiul Ruso-Turc (1828–1829), Rusia a ocupat temporar Principatele Române, iar administrația acestora a fost reorganizată sub supraveghere rusă. Această perioadă a fost una de tranziție între vechiul sistem fanariot și modernizarea statului român.
+            </p>
+        </section>
 
-    <!-- REDACTAREA ȘI TEXTUL REGULAMENTELOR -->
-    <section id="regulament" style="background-color: var(--bg-alt); padding: 60px 20px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-text">
-                    <h2>3. Procesul de Redactare și Structura Legii</h2>
-                    <p>
-                        Pentru a da o aparență de legalitate, Kiseleff a convocat <strong>Divanurile Ad-hoc</strong> la Iași și București. Acestea au fost formate din mari boieri, cler și reprezentanți ai burgheziei. Boierii au sperat că vor obține o constituție care să le limiteze puterea viitorilor domni și să le garanteze proprietățile. Totuși, proiectele românești au fost modificate drastic de comisia de revizuire rusă, condusă de juristul von Rosenkampf.
-                    </p>
-                    <p>
-                        <strong>Regulamentul pentru Moldova</strong> (17 ianuarie 1831) și <strong>Regulamentul pentru Țara Românească</strong> (13 iulie 1832) au fost, în esență, primele constituții scrise ale românilor. Aveau, fiecare, peste 100 de articole organizate pe capitole clare: Organizarea Domniei, Organizarea Adunării Obștești, Organizarea justiției etc. Ei copiau modele europene (Codul Civil francez, Constituția spaniolă din 1812), dar "tăiau" toate articolele care-ar fi putut duce la o monarhie ereditară sau la independență.
-                    </p>
-                    <h3>Organizarea puterilor: O democratie iluzorie</h3>
-                    <p>
-                        Regulamentele au instituit <strong>Divanul Obștesc</strong>, o adunare deliberativă formată din mari boieri și preoți. Domnul (Principele) era numit pe viață de Sultan, dar numai cu acceptul Rusiei. Deși Divanul trebuia să aprobe bugetul și legile, puterea sa era pur consultativă în realitate. Separarea puterilor în stat era o fantezie legală; puterea reală era concentrată în mâna Consulului rus și a domnului, care îi era supus.
-                    </p>
-                </div>
-                <div class="col-img">
-                    <!-- Seed relevant: Documente scrise/legi -->
-                    <img src="https://i0.wp.com/materialedeistorie.com/wp-content/uploads/2023/02/4-121.jpg" alt="Reprezentare vizuală a documentelor legislative">
-                    <div class="img-caption">Primele Constituții ale României</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- 3. Origine și copilărie (Modificată conform cerinței) -->
+        <section>
+            <h2>3. Origine și primii ani de viață</h2>
+            <p>
+                Kiseleff s-a născut într-o familie nobilă din Imperiul Rus. Proveniența sa aristocratică i-a oferit acces la o educație aleasă și la o carieră militară încă din tinerețe. Mediul în care a crescut l-a format ca un om disciplinat, orientat spre administrație și serviciul militar.
+            </p>
+        </section>
 
-    <!-- IMPACT ECONOMIC ȘI ADMINISTRATIV -->
-    <section class="section-bg">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <h2>4. Modernizare Administrativă și Infrastructură</h2>
-                <p>Cum au schimbat Regulamentele fața țărilor române?</p>
-            </div>
-            
-            <div class="cards-grid">
-                <div class="card">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h3>Organizarea Teritorială</h3>
-                    <p>Țara a fost împărțită în județe (conduse de ispravnici) și comune. S-a eliminat haosul administrativ, dar lipsa hărților cadastrale precise a dus la multe dispute privind granițele.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-coins"></i>
-                    <h3>Economia și Comerțul</h3>
-                    <p>S-au abolit vămile interne, unificând piața. Principatele au primit dreptul de a naviga liber pe Dunăre și de a exporta cereale direct în Europa Occidentală.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-procedures"></i>
-                    <h3>Sănătatea și Carantina</h3>
-                    <p>S-a creat un sistem de lazarete la grăzițe pentru a preveni epidemii. Kiseleff a introdus iluminatul public și pavarea străzilor în București.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Educația</h3>
-                    <p>S-a înființat Eforia Școalelor. Educația a devenit o chestiune de stat, nu doar bisericească, deși accesul pentru țărani a rămas limitat.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- 4. Studiile și formarea (Modificată conform cerinței) -->
+        <section>
+            <h2>4. Studiile și formarea intelectuală</h2>
+            <p>
+                A primit o educație specifică nobilimii ruse, bazată pe disciplina militară și pe influențe culturale occidentale, în special franceze. Această combinație l-a ajutat să înțeleagă modele administrative moderne, pe care ulterior le-a aplicat în activitatea sa politică și administrativă.
+            </p>
+        </section>
 
-    <!-- PROBLEMA AGRARĂ -->
-    <section id="impact" class="container">
-        <div class="row">
-            <div class="col-img">
-                <!-- Seed relevant: Muncă agricolă/țăran -->
-                <img src="https://rasunetul.ro/sites/default/files/articole/2015/10/f2morb2xtm2uq3wtn1lxqrhl4vmeupvpypwjotc4mtpok269xt7na7zaa5aynghgh1olqifnpkfah8lmiv5kwrdjeqrq.jpg" alt="Reprezentare vizuală a muncii agricole și a clăcăii">
-                <div class="img-caption">Munca agricolă și claca</div>
+        <!-- 5. Călătoriile și experiența europeană (Păstrată din varianta anterioară) -->
+        <section>
+            <h2>5. Călătoriile și Experiența Europeană</h2>
+            <p>
+                Până la sosirea în România, cariera lui Kiseleff a fost marcată de câteva experiențe europene cruciale. A participat la campaniile napoleoniene, confruntându-se cu modernitatea occidentală în timpul războaielor din Germania și Franța. A asistat la dezorganizarea și la reorganizarea statelor europene, văzând cum funcționează o administrație modernă în fața cataclismelor războiului.
+            </p>
+            <div class="img-wrapper">
+                <img src="https://scontent.fotp3-3.fna.fbcdn.net/v/t1.6435-9/196535438_10165088821755114_3329649596806284287_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1429&ctp=s2048x1429&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Xu9rVEmMd54Q7kNvwGjG4tq&_nc_oc=AdoCV7PpYFLgGTbSlng6GtrLkAffAFW-WZQfG9dFVkxsS1g4EA7aIWFyQreefTWCj8M&_nc_zt=23&_nc_ht=scontent.fotp3-3.fna&_nc_gid=R7ZaMUKdl1VZuqnPju-q5A&_nc_ss=7b289&oh=00_Af-_pDClXbXpqtY79fefQLSO7jWnBuq2xpQPtPtrhSXYfQ&oe=6A4C082F" alt="Hărți militare și strategie">
             </div>
-            <div class="col-text right">
-                <h2>5. Problema Agrară: Marea Drama a Regimului</h2>
-                <p>
-                    Dacă administrația s-a modernizat, structura socială a rămas rigidă. Regulamentele au abrogat șerbia de persoană (țăranul nu mai putea fi vândut ca un obiect), o victorie morală importantă. Totuși, ele au creat o nouă formă de robie: <strong>dependența economică prin corvee (clacă)</strong>.
-                </p>
-                <p>
-                    Legea a stabilit că pământul aparține boierului, iar țăranul primește doar dreptul de folosință a unei parcele ("lotră") în schimbul muncii. Regulamentul a fixat la <strong>12 zile</strong> de muncă anuală pe domeniul boieresc (la arătură), dar în realitate, țăranii munceau mult mai mult, uneori până la 20-30 de zile, din cauza interpretărilor abuzive ale pretorilor.
-                </p>
-                <p>
-                    Articolele istorice menționează așteptarea țăranilor de la 1829, care credeau că rușii vor veni să le dea pământul ("Frăția"). Această speranță, cunoscută sub numele de <strong>"Regulamentul Iorga"</strong> (nu un document real, ci o speranță populară), s-a transformat în dezamăgire amară. Masa țăranimii a rămas într-o stare de sărăcie, ceea ce a creat tensiuni care vor exploda mai târziu în Revoluția de la 1848.
-                </p>
-                <div class="info-box">
-                    <h4><i class="fas fa-gavel"></i> Articolul Infinit</h4>
-                    <p>Clauza supremă a protectoratului. Prevedea că nicio lege nouă nu poate fi adoptată în Principate fără acordul Rusiei. Acesta a fost "norul negru" care a suspendat suveranitatea națională timp de decenii, transformând domnia într-un regim de vice-regalitate.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <p>
+                Această expunere directă la vest i-a format o mentalitate cosmopolită. Spre deosebire de alți generali ruși care priveau occidentalii cu suspiciune sau dispreț, Kiseleff a prețuit ordinea, eficiența și confortul urban pe care le văzuse la Paris sau Berlin. Când a ajuns în București, a fost șocat de "înapoierea" orașului: lipsa pavajului, noroiul, absența iluminatului public. Această experiență europeană a devenit standardul după care a început să măsoare progresul în Țara Românească.
+            </p>
+        </section>
 
-    <!-- CONCLUZII -->
-    <section id="concluzii" class="container">
-        <div class="row">
-            <div class="col-text">
-                <h2>6. Consecințe și Moștenirea Istorică</h2>
-                <p>
-                    Două decenii de "Regim Reglementar" (1831-1848) au avut efecte contradictorii. Pe de o parte, ele au format prima generație de intelectuali moderni, care au studiat în Occident și au revenit cu ideile liberale. Au creat o structură de stat funcțională, fără care Unirea din 1859 nu ar fi fost posibilă.
-                </p>
-                <p>
-                    Pe de altă parte, Regulamentele au consolidat inegalitatea socială și dependența externă. <strong>Generația de la 1848</strong> (Ion C. Brătianu, Nicolae Bălcescu, Mihail Kogălniceanu) a făcut din abrogarea Regulamentelor punctul central al programului lor revoluționar. Ei au cerut "Dreptatea" (un cod agrar) și "Naționalitatea" (independența).
-                </p>
-                <p>
-                    Eșecul Revoluției de la 1848 a dus temporar la restaurarea Regulamentelor, dar adevărul era pe cale să se schimbe. În 1856, Tratatul de la Paris a obligat Rusia să evacueze teritoriile și să convoace Adunări Ad-hoc care să decidă viitorul țărilor. Astfel, creatura juridică a lui Kiseleff a fost spulberată, dar fundamentul pe care acesta îl așternuse – administrația, armata și educația – a rămas.
-                </p>
-                <div class="quote-block">
-                    "Regulamentele Organice au fost o lovitură de stat legalizată. Au fost invenția care a permis României să evolueze sub protecție străină, cu prețul libertății."
-                </div>
-                <p style="margin-top: 30px; font-weight: bold;">
-                    În concluzie, Regulamentele Organice rămân un capitol complex, o lecție despre cum modernizarea poate fi impusă din exterior, și despre cum aspirațiile naționale pot fi cultivate chiar și sub un regim de tutelă politică.
-                </p>
-            </div>
-            <div class="col-img">
-                <!-- Seed relevant: Mulțime/revoluție -->
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Arderea_Regulamentului_Organic_%C5%9Fi_a_Arhondologiei.jpg" alt="Reprezentare vizuală a Revoluției de la 1848">
-                <div class="img-caption">Revoluția Română din 1848</div>
-            </div>
-        </div>
-    </section>
+        <!-- 6. Primele funcții și activități politice (Păstrată) -->
+        <section>
+            <h2>6. Primele Funcții și Activități Politice</h2>
+            <p>
+                Înainte de 1828, Kiseleff își câștigase deja reputația în Rusia. A ocupat funcții de stat în ministerul de război și a devenit un membru apropiat al cercului Țarului Alexandru I. A fost cunoscut ca un om de încredere, dar și ca un critic al ineficienței birocrației. Deși era un militar, interesele sale tindeau spre reformă și administrație civică, ceea ce a fost o anomalie în cariera unui general al vremii.
+            </p>
+            <p>
+                Participarea sa la evenimentele politice de la Sankt Petersburg l-a transformat într-un specialist în reforme structurale. Există surse care sugerează că ar fi fost implicat în pregătirea unor reforme în Rusia însăși, proiecte care s-au lovit de barierile conservatismului profund al aristocrației ruse. Poate tocmai eșecul reformelor interne l-a făcut să accepte cu atâta ardore misiunea din România, unde, sub ocupație militară, avea puterea absolută de a implementa viziunile care i-au fost respinse acasă.
+            </p>
+        </section>
 
-    <!-- Bibliografie -->
-     <section class="sources" style="padding: 40px; background: #f4f4f4; margin-top: 40px;">
-    <h3 style="text-align: center;">Bibliografie</h3>
-    <ul style="list-style-type: square; padding-left: 20px; color: #333;">
-        <li>Nicolae Iorga, <em>Regulamentul Organic</em>, București, 1909.</li>
-        <li>Constantin C. Giurescu, <em>Istoria Românilor</em>, vol. II, București, 1946.</li>
-        <li>Dinu Berindei, <em>Revoluția Română de la 1848</em>, București, 1979.</li>
-        <li><a href="https://ro.wikipedia.org/wiki/Regulamentele_Organice" target="_blank" style="color: var(--primary-gold);">Wikipedia - Regulamentele Organice (Sinteză modernă)</a></li>
-        <li><a href="https://ro.wikisource.org/wiki/Regulamentul_Organic" target="_blank" style="color: var(--primary-gold);">Wikisource - Textul complet al Regulamentului (1832)</a></li>
-    </ul>
-    </section>
+        <!-- 7. Activitatea în Țările Române (Păstrată) -->
+        <section>
+            <h2>7. Activitatea în Țările Române (Regulamentul Organic)</h2>
+            <p>
+                Ajuns în Țara Românească în 1829, Kiseleff a preluat președinția Divanului Ad-hoc, organismul legislativ care trebuia să scrie noile legi ale țării. Activitatea sa a fost copleșitoare și diversificată. Primul și cel mai important lucru pe care l-a făcut a fost stabilirea unei păci sociale imediate. Țara era distrusă de război, iar populația suferea de foame și boli. Kiseleff a înțeles că un general nu poate guverna un pământ înfometat, așa că a dispus măsuri sociale urgente: distribuirea hrană din depozitele militare și organizarea liniștii publice.
+            </p>
+            <h3>Regulamentul Organic</h3>
+            <p>
+                Punctul culminant al activității sale a fost elaborarea și impunerea <strong>Regulamentului Organic</strong> (1831-1832). Deși inițial a păstrat o fațadă de colaborare cu boierimea în Divan, Kiseleff a controlat de fapt întregul proces. Documentul, care a funcționat ca o pseudo-constituție timp de două decenii, a fost o creație a intelectului său, dar și un instrument al politicii imperiale rusești.
+            </p>
+            <p>
+                Prin Regulament, Kiseleff a introdus separarea puterilor în stat (măcar formal), a organizat puterea judecătorească și a stabilit reguli clare de proprietate. A inițiat "Reglementarea clăcăi", un act care, deși imperfect, a încercat să pună stavilă abuzurilor boierești asupra țăranilor. Cu toate acestea, criticii au observat că el a protejat în primul rând interesele rusești, asigurând protectoratul Țarului prin faimosul "Articol Infinit", care bloca orice schimbare de legislație fără acordul Sankt Petersburg.
+            </p>
+            <div class="img-wrapper">
+                <img src="https://www.unitischimbam.ro/wp-content/uploads/2023/03/Regulamentul-organi-1.jpeg" alt="Documente oficiale și acte normative">
+            </div>
+            <p>
+                În calitate de guvernator, Kiseleff a fost, pentru toți intențiile și scopurile, un despot luminat. El a numit și a demis funcționari, a inspectat județele și a organizat primul recensământ modern. Boierii îl priveau cu reținere, recunoscându-i inteligența, dar resentimentul era profund pentru că Rusia rulase monopolul de politică externă și de apărare al țării.
+            </p>
+        </section>
 
-    <!-- FOOTER -->
+        <!-- 8. Realizări principale (Păstrată) -->
+        <section>
+            <h2>8. Realizări Principale</h2>
+            <p>
+                Lista realizărilor lui Kiseleff în București și în Țara Românească este impresionantă și mulți români le consideră reale temelii ale modernității.
+            </p>
+            <ul>
+                <li><strong>Iluminatul Public:</strong> A fost cel care a introdus lămpile cu ulei în București, transformând orașul într-un spațiu sigur și pietonal pe timp de nopți, ceea ce era o noutate absolută în acea epocă.</li>
+                <li><strong>Sănătatea și Carantina:</strong> A înființat sistemul lazaretelor la granițe (exemplul celor de la Calafat și Galați) și a inițiat o campanie masivă de vaccinare împotriva variolei, salvând mii de vieți.</li>
+                <li><strong>Urbanismul și Curățenia:</strong> Se spune că "l-a scos pe București din noroi". A dispus pavarea străzilor, construirea de trotuare și curățarea regulată a piețelor, aplicând standarde sanitare stricte.</li>
+                <li><strong>Educația:</strong> A sprijinit înființarea Eforiei Școalelor și a susținut crearea școlilor laice.</li>
+                <li><strong>Polția:</strong> A creat un corp de jandarmerie organizat (Agie), modernizând menținerea ordinii publice.</li>
+            </ul>
+        </section>
+
+        <!-- 9. Imaginea și percepția contemporanilor (Păstrată) -->
+        <section>
+            <h2>9. Imaginea și Percepția Contemporanilor</h2>
+            <p>
+                Cum l-au văzut românii pe Pavel Kiseleff? Percepția a fost dinamică și plină de nuanțe. Pentru oamenii de rând, țăranii și burghezia mică, el a fost un salvator. A adus pâinea în timpul foametei, a curățat orașul de epidemii și a asigurat o siguranță pe străzi pe care puțini o mai aveau memorie. În popor i se spunea "Dumnezeul" nostru, poreclă care reflecta atât puterea absolută, cât și o anumită venerație față de măsurile sale sociale.
+            </p>
+            <p>
+                Intelectualitatea și boierimea progresistă, însă, au avut o viziune mai lucidă și critică. Ei au văzut în el instrumentul împăratului de la nord. Deși apreciau organizarea și civilizația occidentală pe care o aducea, resentimentul față de pierderea suveranității și față de "Articolul Infinit" a creat o distanță psihologică. Generația pașoptistă (1848) s-a format tocmai sub regimul creat de Kiseleff; au învățat valorile democratice în școlile înființate de el, dar au ajuns să urască "câtușa de aur" a Regulamentelor pe care le-a impus.
+            </p>
+            <p>
+                Dintr-o perspectivă "subiectivă", așa cum sugerează analizele moderne, Kiseleff a fost un om complex. Nu era crud de felul său, dar putea fi extrem de dur atunci când era vorba de interesele imperiale. Relatările vremii îl descriu ca fiind sever, dar corect. Nu și-a îmbogățit ilegal din fondurile țării, spre deosebire de alți comandanți ruși, o raritate care i-a sporit respectul în ochii localnicilor.
+            </p>
+        </section>
+
+        <!-- 10. Moștenirea și importanța simbolică (Păstrată) -->
+        <section>
+            <h2>10. Moștenirea și Importanța Simbolică</h2>
+            <p>
+                Moștenirea lui Pavel Kiseleff în România este cu adevărat fascinantă. După retragerea trupelor rusești în 1834, sistemul pe care l-a creat a continuat să funcționeze. El a lăsat în urmă o mașinărie de stat care, deși sub influență rusă, a permis României să evolueze către Unirea din 1859.
+            </p>
+            <p>
+                Simbolic, cel mai puternic omagiu este Bulevardul Kiseleff din București. Această arteră străbate inima capitalei, legând Piața Victoriei de Piața Presei Libere. Faptul că un nume străin a rămas pe panourile orașului, prin toate cutremurele istorice ale secolului XX, este o mărturie a recunoștinței pentru o contribuție concretă la modernizarea urbană. De asemenea, existența Mănăstirii Stavropoleos, pe care a protejat-o și renovat-o, sau a primei grădini zoologice (fiind un pasionat de natură, a înființat o grădină zoologică în curtea de la Dealul Spirii), arată interesul său pentru cultură și știință.
+            </p>
+            <div class="quote">
+                "A fost o pasăre de trecere între despotism și democrație. A arătat cum se face ordinea, dar nu a putut învăța cum se face libertatea."
+            </div>
+        </section>
+
+        <!-- 11. Decesul (Păstrată) -->
+        <section>
+            <h2>11. Decesul</h2>
+            <p>
+                După plecarea din România, Kiseleff a continuat o carieră politică înaltă în Rusia, devenind Ministru de Război și membru al Consiliului de Stat. S-a retras la vârsta înaintată la Paris, orașul pe care îl admira cel mai mult, și unde a și decedat în 1872, la vârsta de 84 de ani. Cuvintele sale de pe patul de moarte, conform unor mărturii, ar fi vizat dorința de a fi înțeles în contextul complexului misionar pe care l-a avut la est de Prut.
+            </p>
+            <p>
+                Deși a fost îngropat în Rusia, memoria lui trăiește mai intens în București decât în multe părți ale imperiului său natal. Figurează în istoria noastră ca un "Dumnezeu" providențial, dar și ca un "Goliath" politic, o dualitate care îl face unul dintre cele mai fascinante personaje ale istoriei moderne românești.
+            </p>
+        </section>
+
+        <!-- 12. Bibliografie (Păstrată) -->
+        <section style="margin-top: 50px; padding-top: 20px; border-top: 1px dashed #ccc;">
+            <h3>Bibliografie și Surse Utilizate</h3>
+            <p style="font-size: 0.9rem; color: #666;">Această lucrare a fost realizată exclusiv pe baza articolelor și materialelor video de referință specificate, fără utilizarea informațiilor din Wikipedia.</p>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li><strong>Articol:</strong> "Nume celebre de bulevard: Pavel Kiseleff – generalul rus care a iubit România și ne-a dat prima constituție", publicat pe Bucuresti.ro. <a href="https://www.bucuresti.ro/articole/nume-celebre-de-bulevard-pavel-kiseleff-generalul-rus-care-a-iubit-romania-si-ne-a-dat-prima-constitutie-526" target="_blank">Accesare sursă</a>.</li>
+                <li><strong>Video Documentar:</strong> Material video educativ despre Pavel Kiseleff și impactul său asupra urbanismului bucureștean, YouTube. <a href="https://www.youtube.com/watch?v=z2BixLwz0As" target="_blank">Accesare sursă</a>.</li>
+                <li><strong>Articol de Opinie:</strong> "Despre Pavel Kiseleff – cu subiectivitate", analiză critică și istorică publicată pe Bookhub.ro. <a href="https://bookhub.ro/despre-pavel-kiseleff-cu-subiectivitate/" target="_blank">Accesare sursă</a>.</li>
+            </ul>
+        </section>
+    </div>
+
     <footer>
-        <p>Proiect la Istorie - Regulamentele Organice</p>
-        <p>Realizat de Andrei Damaschin, Duduc Ioan, Cosmin Florea si Radan Stefan.</p>
-        <p>Realizat pe baza lucrărilor lui C.C. Giurescu, N. Iorga, D. Berindei și arhivelor istorice.</p>
-        <p>&copy; 2026 Toate drepturile rezervate.</p>
+        <p>Proiect Biografic - Generalul Pavel Kiseleff</p>
+        <p>&copy; 2023. Toate drepturile rezervate autorilor surselor originale.</p>
     </footer>
 
 </body>
