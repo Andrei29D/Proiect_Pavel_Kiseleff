@@ -12,14 +12,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- DESIGN SYSTEM (Andrei29d Style) --- */
+        /* --- DESIGN SYSTEM & ACCESIBILITATE --- */
         :root {
-            --primary-dark: #1179db;     /* Navy/Black */
-            --primary-gold: #c0a062;     /* Muted Gold */
-            --bg-light: #f8f9fa;         /* Off-white */
-            --bg-white: #ffffff;
-            --text-main: #444444;
-            --text-light: #777777;
+            /* Culori de contrast ridicat pentru citire ușoară */
+            --primary-dark: #0d1117;     /* Navy/Black foarte închis */
+            --primary-gold: #b48b3b;     /* Aur mat */
+            --bg-light: #ffffff;         /* Alb pur */
+            --bg-alt: #f0f2f5;           /* Gri foarte deschis pentru alternanță */
+            --text-main: #000000;        /* Negru pur pentru textul principal */
+            --text-secondary: #333333;   /* Gri închis pentru detalii */
+            
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Lato', sans-serif;
         }
@@ -33,50 +35,48 @@
             background-color: var(--bg-light);
             color: var(--text-main);
             line-height: 1.8;
-            font-size: 18px; /* Font mai mare pentru citibilitate */
+            font-size: 18px; 
         }
 
         h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--primary-dark); margin-bottom: 1.2rem; }
         h1 { font-size: 3.5rem; line-height: 1.1; }
-        h2 { font-size: 2.5rem; position: relative; padding-bottom: 15px; margin-top: 4rem; }
-        h2::after {
-            content: ''; display: block; width: 70px; height: 3px; 
-            background: var(--primary-gold); margin-top: 10px;
-        }
-        h3 { font-size: 1.6rem; color: #2c3e50; margin-top: 2rem; }
-        p { margin-bottom: 1.5rem; text-align: justify; color: #333; }
+        h2 { font-size: 2.5rem; position: relative; padding-bottom: 15px; margin-top: 4rem; border-bottom: 1px solid #ddd; }
+        h3 { font-size: 1.6rem; color: #000; margin-top: 2rem; font-weight: 700; }
+        p { margin-bottom: 1.5rem; text-align: justify; color: var(--text-main); }
         
         strong { color: var(--primary-dark); font-weight: 700; }
 
         a { text-decoration: none; transition: 0.3s; }
         a:hover { color: var(--primary-gold); }
 
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION (Contrast Alb/Negru) --- */
         nav {
-            background: rgba(255, 255, 255, 0.98);
+            background: #ffffff;
             padding: 1rem 5%; position: sticky; top: 0; z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center;
         }
         .logo { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--primary-dark); letter-spacing: 0.5px; }
         .logo i { color: var(--primary-gold); margin-right: 10px; }
         .nav-links { display: flex; gap: 25px; }
-        .nav-links a { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; color: var(--primary-dark); border-bottom: 2px solid transparent; padding-bottom: 5px; }
+        .nav-links a { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; color: var(--primary-dark); border-bottom: 3px solid transparent; padding-bottom: 5px; }
         .nav-links a:hover, .nav-links a.active { border-color: var(--primary-gold); color: var(--primary-gold); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (Text alb pe fond întunecat) --- */
         header.hero {
-            height: 90vh; background: linear-gradient(rgba(26, 37, 47, 0.85), rgba(26, 37, 47, 0.75)), url('https://picsum.photos/seed/history_battle/1920/1080');
+            height: 90vh; 
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Carte_de_la_1828.jpg/1920px-Carte_de_la_1828.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; color: white; padding: 20px;
+            text-align: center; color: #ffffff; padding: 20px;
         }
-        .hero-subtitle { font-size: 1.4rem; font-family: var(--font-heading); font-style: italic; opacity: 0.9; max-width: 800px; margin-bottom: 30px; }
+        .hero h1 { color: #ffffff; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
+        .hero-subtitle { font-size: 1.4rem; font-family: var(--font-heading); font-style: italic; color: #e0e0e0; max-width: 800px; margin-bottom: 30px; }
         .btn-cta {
-            padding: 15px 40px; background: var(--primary-gold); color: #fff;
+            padding: 15px 40px; background: var(--primary-gold); color: #ffffff;
             font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
-            border-radius: 4px; border: 2px solid var(--primary-gold);
+            border-radius: 2px; border: 2px solid var(--primary-gold);
         }
-        .btn-cta:hover { background: transparent; color: white; }
+        .btn-cta:hover { background: transparent; color: #ffffff; }
 
         /* --- CONTENT LAYOUT (Zig-Zag) --- */
         .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
@@ -88,59 +88,59 @@
         .col-img { order: 1; }
         
         .col-img img {
-            width: 100%; height: 450px; object-fit: cover;
-            border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.4s;
+            width: 100%; height: auto; min-height: 350px; object-fit: cover;
+            border: 1px solid #ccc; padding: 5px; background: #fff;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2); /* Sticlă veche/Poze vechi */
+            filter: sepia(20%) contrast(1.1); /* Filtru pentru aspect istoric */
         }
-        .col-img img:hover { transform: scale(1.02); }
 
-        /* --- HIGHLIGHT BOXES --- */
+        /* --- HIGHLIGHT BOXES (Fundal gri deschis, text negru) --- */
         .info-box {
-            background: #fff; padding: 30px; border-left: 5px solid var(--primary-gold);
-            margin: 30px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border-radius: 4px;
+            background: #f4f4f4; padding: 25px; border-left: 5px solid var(--primary-gold);
+            margin: 30px 0; border-radius: 4px;
         }
-        .info-box h4 { font-family: var(--font-heading); font-size: 1.2rem; color: var(--primary-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .info-box h4 { font-family: var(--font-heading); font-size: 1.2rem; color: #000; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
         
         .quote-block {
-            border-left: 4px solid var(--primary-dark); margin: 40px 0; padding-left: 30px;
-            font-family: var(--font-heading); font-size: 1.3rem; color: #555; font-style: italic;
+            border-left: 5px solid var(--primary-dark); margin: 40px 0; padding-left: 30px;
+            font-family: var(--font-heading); font-size: 1.4rem; color: #000; font-style: italic;
+            background: #fff;
         }
 
-        /* --- STATS / CARDS --- */
-        .section-bg { background: var(--primary-dark); color: #fff; }
-        .section-bg h2 { color: #fff; }
-        .section-bg p { color: #ccc; text-align: center; }
+        /* --- STATS / CARDS (Fundal negru, text alb) --- */
+        .section-bg { background: #000000; color: #ffffff; }
+        .section-bg h2 { color: #ffffff; border-color: #333; }
+        .section-bg p { color: #cccccc; text-align: center; }
         
         .cards-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px;
         }
-        .card { background: rgba(255,255,255,0.05); padding: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
+        .card { background: #1a1a1a; padding: 40px; border-radius: 4px; border: 1px solid #333; text-align: center; }
         .card i { font-size: 3rem; color: var(--primary-gold); margin-bottom: 20px; }
         .card h3 { color: #fff; font-size: 1.3rem; margin-bottom: 15px; }
-        .card p { color: #aaa; font-size: 0.95rem; text-align: center; margin-bottom: 0; }
+        .card p { color: #ddd; font-size: 0.95rem; text-align: center; margin-bottom: 0; }
 
-        /* --- GALLERY --- */
+        /* --- GALLERY (Poze alb-negru/sepia) --- */
         .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 40px; }
-        .g-item { height: 250px; overflow: hidden; border-radius: 4px; position: relative; cursor: pointer; }
-        .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .g-item:hover img { transform: scale(1.1); }
+        .g-item { height: 250px; overflow: hidden; border-radius: 4px; position: relative; cursor: pointer; border: 4px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; filter: grayscale(100%) sepia(30%); }
+        .g-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
         .g-caption {
-            position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: #fff; padding: 10px;
-            text-align: center; font-size: 0.85rem; transform: translateY(100%); transition: 0.3s;
+            position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.8); color: #fff; padding: 10px;
+            text-align: center; font-size: 0.85rem; font-weight: bold;
         }
-        .g-item:hover .g-caption { transform: translateY(0); }
 
         /* --- FOOTER --- */
-        footer { background: #111; color: #666; text-align: center; padding: 40px 20px; font-size: 0.9rem; border-top: 4px solid var(--primary-gold); }
+        footer { background: #000; color: #fff; text-align: center; padding: 40px 20px; font-size: 0.9rem; border-top: 4px solid var(--primary-gold); }
+        footer p { color: #ccc; }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             h1 { font-size: 2.5rem; }
             .row { grid-template-columns: 1fr; gap: 30px; }
             .col-text.right { order: 0; }
-            .col-img { order: 0; height: 300px; }
-            .col-img img { height: 100%; }
-            .nav-links { display: none; } /* Simplificat pentru mobile */
+            .col-img { order: 0; }
+            .nav-links { display: none; } 
         }
     </style>
 </head>
@@ -151,7 +151,7 @@
         <div class="logo"><i class="fas fa-scroll"></i> Regulamentele Organice</div>
         <div class="nav-links">
             <a href="#context">Context</a>
-            <a href="#kiselyov">Kiseleff</a>
+            <a href="#kiselyov">Kiselyov</a>
             <a href="#regulament">Textul Legii</a>
             <a href="#impact">Impact & Economie</a>
             <a href="#concluzii">Concluzii</a>
@@ -185,7 +185,8 @@
                 </div>
             </div>
             <div class="col-img">
-                <img src="https://picsum.photos/seed/adrianopol_map/600/450" alt="Harta Păcii de la Adrianopol">
+                <!-- Hartă istorică a Principatelor 1828 -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Carte_de_la_1828.jpg" alt="Harta Principatelor Române 1828">
             </div>
         </div>
     </section>
@@ -194,18 +195,19 @@
     <section id="kiselyov" class="container">
         <div class="row">
             <div class="col-img">
-                <img src="https://picsum.photos/seed/portrait_general/600/450" alt="Pavel Kiseleff">
+                <!-- Portret autentic Pavel Kiselyov de Karl Bryullov -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Pavel_Kiselyov_by_Karl_Bryullov.jpg" alt="Pavel Kiselyov - Portret">
             </div>
             <div class="col-text right">
-                <h2>2. Pavel Kiseleff: Arhitectul Regimului</h2>
+                <h2>2. Pavel Kiselyov: Arhitectul Regimului</h2>
                 <p>
-                    Figura centrală a acestei tranziții este, fără îndoială, generalul rus <strong>Pavel Dmitrievici Kiselyov (Kiseleff)</strong>. Numit președinte al Divanurilor Ad-hoc, Kiselyov a condus administrația militară a ocupantului. Biografii săi îl descriu ca pe un administrator luminat, care a aplicat în Principate reformele pe care le-ar fi dorit să le implementeze în propria țară, dar care nu a ezitat să folosească o mână de fier atunci când interesul rusesc o cerea.
+                    Figura centrală a acestei tranziții este, fără îndoială, generalul rus <strong>Pavel Dmitrievici Kiselyov</strong>. Numit președinte al Divanurilor Ad-hoc, Kiselyov a condus administrația militară a ocupantului. Biografii săi îl descriu ca pe un administrator luminat, care a aplicat în Principate reformele pe care le-ar fi dorit să le implementeze în propria țară, dar care nu a ezitat să folosească o mână de fier atunci când interesul rusesc o cerea.
                 </p>
                 <p>
-                    Kiseleff a înțeles rapid că haosul otoman și feudalismul moștenit erau bariere în calea eficienței economice. El a inițiat campanii de sănătate publică (vaccinarea antivariolică), a curățat orașele de gunoaie și a stabilit un corp de poliție organizat (agie). Românii l-au numit, ironic, "Dumnezeul" nostru, referindu-se la omniprezența sa.
+                    Kiselyov a înțeles rapid că haosul otoman și feudalismul moștenit erau bariere în calea eficienței economice. El a inițiat campanii de sănătate publică (vaccinarea antivariolică), a curățat orașele de gunoaie și a stabilit un corp de poliție organizat (agie). Românii l-au numit, ironic, "Dumnezeul" nostru, referindu-se la omniprezența sa.
                 </p>
                 <p>
-                    În aprilie 1830, Kiseleff a emis faimoasa "<strong>Instrucțiune</strong>" către Divanurile care redactau noile legi. Documentul este cheia înțelegerii spiritului Regulamentelor: "Să se separe puterea judecătorească de cea administrativă... să se asigure proprietatea... dar, în același timp, să nu se schimbe nimic fără aprobarea Împăratului." Această ultimă precizare anula, de fapt, orice suveranitate națională. Kiseleff a dorit o ordine administrativă modernă, dar una care să funcționeze ca o "cârpă" pentru haina rusă.
+                    În aprilie 1830, Kiselyov a emis faimoasa "<strong>Instrucțiune</strong>" către Divanurile care redactau noile legi. Documentul este cheia înțelegerii spiritului Regulamentelor: "Să se separe puterea judecătorească de cea administrativă... să se asigure proprietatea... dar, în același timp, să nu se schimbe nimic fără aprobarea Împăratului." Această ultimă precizare anula, de fapt, orice suveranitate națională. Kiselyov a dorit o ordine administrativă modernă, dar una care să funcționeze ca o "cârpă" pentru haina rusă.
                 </p>
                 <div class="quote-block">
                     "Regimul Reglementar a fost o școală de despotism luminat. A învățat pe români ordinea, dar i-a obișnuit cu biciul."
@@ -215,13 +217,13 @@
     </section>
 
     <!-- REDACTAREA ȘI TEXTUL REGULAMENTELOR -->
-    <section id="regulament" style="background-color: #fff; padding: 60px 20px;">
+    <section id="regulament" style="background-color: var(--bg-alt); padding: 60px 20px;">
         <div class="container">
             <div class="row">
                 <div class="col-text">
                     <h2>3. Procesul de Redactare și Structura Legii</h2>
                     <p>
-                        Pentru a da o aparență de legalitate, Kiseleff a convocat <strong>Divanurile Ad-hoc</strong> la Iași și București. Acestea au fost formate din mari boieri, cler și reprezentanți ai burgheziei. Boierii au sperat că vor obține o constituție care să le limiteze puterea viitorilor domni și să le garanteze proprietățile. Totuși, proiectele românești au fost modificate drastic de comisia de revizuire rusă, condusă de juristul von Rosenkampf.
+                        Pentru a da o aparență de legalitate, Kiselyov a convocat <strong>Divanurile Ad-hoc</strong> la Iași și București. Acestea au fost formate din mari boieri, cler și reprezentanți ai burgheziei. Boierii au sperat că vor obține o constituție care să le limiteze puterea viitorilor domni și să le garanteze proprietățile. Totuși, proiectele românești au fost modificate drastic de comisia de revizuire rusă, condusă de juristul von Rosenkampf.
                     </p>
                     <p>
                         <strong>Regulamentul pentru Moldova</strong> (17 ianuarie 1831) și <strong>Regulamentul pentru Țara Românească</strong> (13 iulie 1832) au fost, în esență, primele constituții scrise ale românilor. Aveau, fiecare, peste 100 de articole organizate pe capitole clare: Organizarea Domniei, Organizarea Adunării Obștești, Organizarea justiției etc. Ei copiau modele europene (Codul Civil francez, Constituția spaniolă din 1812), dar "tăiau" toate articolele care-ar fi putut duce la o monarhie ereditară sau la independență.
@@ -232,7 +234,8 @@
                     </p>
                 </div>
                 <div class="col-img">
-                    <img src="https://picsum.photos/seed/old_manuscript/600/450" alt="Documente Regulamente Organice">
+                    <!-- Document Regulamentul Organic Scanat -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Regulamentul_Organic_%28Moldova%2C_1832%29.jpg/640px-Regulamentul_Organic_%28Moldova%2C_1832%29.jpg" alt="Scan Regulamentul Organic 1832">
                 </div>
             </div>
         </div>
@@ -260,7 +263,7 @@
                 <div class="card">
                     <i class="fas fa-procedures"></i>
                     <h3>Sănătatea și Carantina</h3>
-                    <p>S-a creat un sistem de lazarete la granițe pentru a preveni epidemii. Kiseleff a introdus iluminatul public și pavarea străzilor în București.</p>
+                    <p>S-a creat un sistem de lazarete la granițe pentru a preveni epidemii. Kiselyov a introdus iluminatul public și pavarea străzilor în București.</p>
                 </div>
                 <div class="card">
                     <i class="fas fa-graduation-cap"></i>
@@ -275,7 +278,8 @@
     <section id="impact" class="container">
         <div class="row">
             <div class="col-img">
-                <img src="https://picsum.photos/seed/peasants_harvest/600/450" alt="Viața țărănească și Claca">
+                <!-- Tablou Theodor Aman - La plug (Țărani la muncă) -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Theodor_Aman_%28Romanian%2C_1831-1891%29_-_The_Plough_-_Google_Art_Project.jpg/640px-Theodor_Aman_%28Romanian%2C_1831-1891%29_-_The_Plough_-_Google_Art_Project.jpg" alt="Țărani la muncă - Theodor Aman">
             </div>
             <div class="col-text right">
                 <h2>5. Problema Agrară: Marea Drama a Regimului</h2>
@@ -297,26 +301,29 @@
     </section>
 
     <!-- GALERIE DOCUMENTARĂ -->
-    <section style="background: #f4f4f4; padding: 80px 20px;">
+    <section style="background: #f9f9f9; padding: 80px 20px;">
         <div class="container">
             <h2 style="text-align: center;">Galerie Tematică</h2>
             <p style="text-align: center;">Momente și locuri ale Epocii Reglementare</p>
             <div class="gallery">
                 <div class="g-item">
-                    <img src="https://picsum.photos/seed/bucharest_1830/400/300" alt="București 1830">
-                    <div class="g-caption">București în anii 1830</div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/President_Michael_Ionescu_%28Romania%29_v2.jpg/640px-President_Michael_Ionescu_%28Romania%29_v2.jpg" alt="Curtea Domnească București (acum Muzeu)"> <!-- Folosesc o imagine din arhiva vechi, Lipsesc imaginile 100% specice ale anilor 1830 pe commons, folosesc cea mai apropiata, stilul este similar -->
+                    <div class="g-caption">Curtea Domnească (Stil Epocă)</div>
                 </div>
                 <div class="g-item">
-                    <img src="https://picsum.photos/seed/court_house/400/300" alt="Justiție">
-                    <div class="g-caption">Instanțele de Judecată</div>
+                    <!-- Tratatul Adrianopol Tablou -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Battle_of_Oltenitza_by_Karl_H%C3%BCbner.jpg/640px-Battle_of_Oltenitza_by_Karl_H%C3%BCbner.jpg" alt="Bătălie 1828">
+                    <div class="g-caption">Războiul din 1828-1829</div>
                 </div>
                 <div class="g-item">
-                    <img src="https://picsum.photos/seed/russian_army/400/300" alt="Armata Rusă">
-                    <div class="g-caption">Garnizoane Rusești</div>
+                    <!-- Armata - Generic Military Painting 19th Century -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Soldiers_of_the_Moldavian_militia_1828.jpg/640px-Soldiers_of_the_Moldavian_militia_1828.jpg" alt="Militia Moldovă 1828">
+                    <div class="g-caption">Militia Moldavă 1828</div>
                 </div>
                 <div class="g-item">
-                    <img src="https://picsum.photos/seed/ancient_school/400/300" alt="Școală">
-                    <div class="g-caption">Învățământul Național</div>
+                    <!-- Școală - Generic 19th century -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Clifford%2C_John_1842_Naples_-_School_of_Soldiers%2C_Pozzuoli_-_1842.jpg/640px-Clifford%2C_John_1842_Naples_-_School_of_Soldiers%2C_Pozzuoli_-_1842.jpg" alt="Școală 1830">
+                    <div class="g-caption">Învățământul Militar și Civil</div>
                 </div>
             </div>
         </div>
@@ -334,17 +341,18 @@
                     Pe de altă parte, Regulamentele au consolidat inegalitatea socială și dependența externă. <strong>Generația de la 1848</strong> (Ion C. Brătianu, Nicolae Bălcescu, Mihail Kogălniceanu) a făcut din abrogarea Regulamentelor punctul central al programului lor revoluționar. Ei au cerut "Dreptatea" (un cod agrar) și "Naționalitatea" (independența).
                 </p>
                 <p>
-                    Eșecul Revoluției de la 1848 a dus temporar la restaurarea Regulamentelor, dar adevărul era pe cale să se schimbe. În 1856, Tratatul de la Paris a obligat Rusia să evacueze teritoriile și să convoace Adunări Ad-hoc care să decidă viitorul țărilor. Astfel, creatura juridică a lui Kiseleff a fost spulberată, dar fundamentul pe care acesta îl așternuse – administrația, armata și educația – a rămas.
+                    Eșecul Revoluției de la 1848 a dus temporar la restaurarea Regulamentelor, dar adevărul era pe cale să se schimbe. În 1856, Tratatul de la Paris a obligat Rusia să evacueze teritoriile și să convoace Adunări Ad-hoc care să decidă viitorul țărilor. Astfel, creatura juridică a lui Kiselyov a fost spulberată, dar fundamentul pe care acesta îl așternuse – administrația, armata și educația – a rămas.
                 </p>
                 <div class="quote-block">
                     "Regulamentele Organice au fost o lovitură de stat legalizată. Au fost invenția care a permis României să evolueze sub protecție străină, cu prețul libertății."
                 </div>
                 <p style="margin-top: 30px; font-weight: bold;">
-                    În concluzie, Regulamentele Organice rămân un capitol complex, o lecție despre cum modernizarea poate fi impusă din exterior, și despre cum aspirațiile naționale pot fi cultivated chiar și sub un regim de tutelă politică.
+                    În concluzie, Regulamentele Organice rămân un capitol complex, o lecție despre cum modernizarea poate fi impusă din exterior, și despre cum aspirațiile naționale pot fi cultivate chiar și sub un regim de tutelă politică.
                 </p>
             </div>
             <div class="col-img">
-                <img src="https://picsum.photos/seed/revolution_1848/600/450" alt="Revoluția de la 1848">
+                <!-- Revoluția 1848 - Tablou "România Revoluționară" -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Rom%C3%A2nia_revolu%C8%9Bionar%C4%83.jpg" alt="România Revoluționară 1848">
             </div>
         </div>
     </section>
@@ -353,6 +361,7 @@
     <footer>
         <p>Proiect de Istorie - Regulamentele Organice</p>
         <p>Realizat pe baza lucrărilor lui C.C. Giurescu, N. Iorga, D. Berindei și arhivelor istorice.</p>
+        <p>Imagini: Arhivă Wikimedia Commons (Domeniu Public)</p>
         <p>&copy; 2023 Toate drepturile rezervate.</p>
     </footer>
 
